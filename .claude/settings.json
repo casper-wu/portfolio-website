@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(nslookup *)",
+      "Bash(which *)",
+      "Bash(pdftotext *)"
+    ]
+  }
+}

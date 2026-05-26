@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(mkdir -p \"f:/Portfolio website/src/app/about\" \"f:/Portfolio website/src/app/projects/[slug]\" \"f:/Portfolio website/src/components/layout\" \"f:/Portfolio website/src/components/ui\" \"f:/Portfolio website/src/components/decorative\" \"f:/Portfolio website/src/lib\" \"f:/Portfolio website/public/images\")"
+    ],
+    "additionalDirectories": [
+      "f:\\Portfolio website\\src\\app\\projects"
+    ]
+  }
+}
