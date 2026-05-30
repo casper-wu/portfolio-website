@@ -241,6 +241,22 @@ export default function ProjectDetailPage() {
                 </div>
               </div>
 
+              {/* Workflow Image */}
+              {"workflowImage" in project && project.workflowImage && (
+                <div className="mt-6">
+                  <h3 className="font-heading font-bold text-xl mb-4">
+                    Workflow
+                  </h3>
+                  <div className="border-2 border-foreground rounded-lg overflow-hidden shadow-pop-card">
+                    <img
+                      src={project.workflowImage}
+                      alt={`${project.title} workflow`}
+                      className="w-full h-auto"
+                    />
+                  </div>
+                </div>
+              )}
+
               {/* Process gallery */}
               {project.images.length > 0 && (
                 <div className="grid grid-cols-2 gap-4 mt-6">

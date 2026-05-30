@@ -244,54 +244,6 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {featuredProjects.map((project, i) => {
-              const isVideo = project.mediaType === "video";
-              const cardContent = (
-                <div className="bg-card border-2 border-foreground rounded-lg shadow-pop-card overflow-hidden flex flex-col h-full">
-                  <div className="h-44 border-b-2 border-foreground overflow-hidden flex-shrink-0">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                    />
-                  </div>
-                  <div className="p-6 pb-4 flex-1 flex flex-col">
-                    <div className="flex items-center gap-2 mb-3">
-                      <span
-                        className={`px-2.5 py-0.5 rounded-full text-xs font-heading font-bold border-2 border-foreground ${
-                          project.category === "ui-ux"
-                            ? "bg-secondary text-white"
-                            : project.category === "multimedia"
-                              ? "bg-accent text-white"
-                              : "bg-quaternary text-white"
-                        }`}
-                      >
-                        {project.category === "ui-ux"
-                          ? "UI/UX"
-                          : project.category === "multimedia"
-                            ? "Multimedia"
-                            : "Urban Design"}
-                      </span>
-                    </div>
-                    <h3 className="font-heading font-bold text-lg mb-2">
-                      {project.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed flex-1">
-                      {project.description}
-                    </p>
-                  </div>
-                  <div className="px-6 pb-6 flex flex-wrap gap-1.5">
-                    {project.tags.slice(0, 3).map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs text-muted-foreground bg-muted px-2 py-0.5 rounded-full"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              );
-
               return (
                 <motion.div
                   key={project.slug}
@@ -301,18 +253,52 @@ export default function Home() {
                   transition={{ delay: i * 0.1 }}
                   className="flex flex-col"
                 >
-                  {isVideo && project.mediaSrc ? (
-                    <button
-                      onClick={() => window.open(project.mediaSrc, "_blank")}
-                      className="text-left flex-1"
-                    >
-                      {cardContent}
-                    </button>
-                  ) : (
-                    <Link href={`/projects/${project.slug}`} className="flex-1">
-                      {cardContent}
-                    </Link>
-                  )}
+                  <Link href={`/projects/${project.slug}`} className="flex-1">
+                    <div className="bg-card border-2 border-foreground rounded-lg shadow-pop-card overflow-hidden flex flex-col h-full">
+                      <div className="h-44 border-b-2 border-foreground overflow-hidden flex-shrink-0">
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                        />
+                      </div>
+                      <div className="p-6 pb-4 flex-1 flex flex-col">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span
+                            className={`px-2.5 py-0.5 rounded-full text-xs font-heading font-bold border-2 border-foreground ${
+                              project.category === "ui-ux"
+                                ? "bg-secondary text-white"
+                                : project.category === "multimedia"
+                                  ? "bg-accent text-white"
+                                  : "bg-quaternary text-white"
+                            }`}
+                          >
+                            {project.category === "ui-ux"
+                              ? "UI/UX"
+                              : project.category === "multimedia"
+                                ? "Multimedia"
+                                : "Urban Design"}
+                          </span>
+                        </div>
+                        <h3 className="font-heading font-bold text-lg mb-2">
+                          {project.title}
+                        </h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed flex-1">
+                          {project.description}
+                        </p>
+                      </div>
+                      <div className="px-6 pb-6 flex flex-wrap gap-1.5">
+                        {project.tags.slice(0, 3).map((tag) => (
+                          <span
+                            key={tag}
+                            className="text-xs text-muted-foreground bg-muted px-2 py-0.5 rounded-full"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </Link>
                 </motion.div>
               );
             })}

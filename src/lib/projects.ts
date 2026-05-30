@@ -15,6 +15,7 @@ export interface Project {
   images: string[];
   mediaType?: "video" | "image";
   mediaSrc?: string;
+  workflowImage?: string;
 }
 
 export const projects: Project[] = [
@@ -151,36 +152,38 @@ export const projects: Project[] = [
     title: "AI Perfume Commercial Video",
     category: "multimedia",
     description:
-      "A fully self-directed AI commercial video showcasing perfume branding through AI-generated visuals and editing.",
+      "A fully AI-driven perfume commercial — from concept and visual generation to final editing, exploring the creative potential of AI in advertising.",
     fullDescription:
-      "A fully self-directed AI commercial video showcasing perfume branding through AI-generated visuals and editing. Created entirely using AI tools for concept development, visual generation, and post-production editing.",
+      "This is a fully AI-driven perfume advertising short film. The entire creative pipeline — from initial concept development and visual asset generation to post-production editing — was completed using AI tools. The project explores the intersection of artificial intelligence and commercial advertising creativity, demonstrating how AI image generation, video synthesis, and intelligent editing can be orchestrated to produce a cohesive brand story. The workflow integrates multiple AI platforms for different stages: text-to-image generation for visual concepts, image-to-video animation for bringing stills to life, and AI-assisted editing for seamless transitions and pacing.",
     image: "/images/Perfume%20commercial%20vedio%20cover%20page.png",
-    tags: ["AI Tools", "Editing", "Advertising"],
+    tags: ["AI Video", "Advertising", "Commercial", "Generative AI"],
     role: "Multimedia Designer",
     duration: "1 week",
-    tools: ["AI Video Tools", "Editing Software"],
+    tools: ["Midjourney", "Runway", "Kling", "CapCut"],
     year: 2025,
     images: [],
     mediaType: "video",
     mediaSrc: "/Perfume%20commercial%20vedio.mp4",
+    workflowImage: "/images/Perfume%20commercial%20vedio%20work%20flow.png",
   },
   {
     slug: "osmanthus-flowers-fall",
     title: "Osmanthus Flowers Fall",
     category: "multimedia",
     description:
-      "When osmanthus flowers fall, they will bloom again. Some words, don't wait until it's too late to say.",
+      "An AI micro-film exploring family bonds and unspoken words — when osmanthus flowers fall, they bloom again; some words shouldn't wait until it's too late.",
     fullDescription:
-      "A micro-film exploring themes of family and unspoken words. When osmanthus flowers fall, they will bloom again. Some words, don't wait until it's too late to say.",
+      "\"Osmanthus Flowers Fall\" (桂花落) is an AI-generated micro-film that uses the osmanthus flower as a central metaphor to explore themes of family, memory, and words left unspoken. The story unfolds through a series of AI-generated visuals that trace the delicate, fleeting nature of osmanthus blossoms — mirroring the precious, time-sensitive nature of expressing love and gratitude to those we hold dear. Every stage of production, from scriptwriting and visual concept design to image generation and final editing, was created using AI tools. The film's visual language draws on the warm golden tones of osmanthus blooms, creating a poetic atmosphere that invites reflection on the relationships that matter most.",
     image: "/images/Osmanthus%20flowers%20fall%E5%B0%81%E9%9D%A2.png",
-    tags: ["Micro-Film", "Directing", "Editing", "Visual Storytelling"],
+    tags: ["Micro-Film", "AI Generation", "Visual Storytelling", "Short Film"],
     role: "Multimedia Designer",
     duration: "2 weeks",
-    tools: ["Video Editing", "Directing"],
+    tools: ["AI Video Generation", "Storyboarding", "Video Editing", "CapCut"],
     year: 2025,
     images: [],
     mediaType: "video",
     mediaSrc: "/Osmanthus%20flowers%20fall.mp4",
+    workflowImage: "/images/Osmanthus%20flowers%20fall%20work%20flow.png",
   },
   {
     slug: "music-festival-poster",

@@ -71,7 +71,6 @@ export default function ProjectsPage() {
           <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <AnimatePresence mode="popLayout">
               {filtered.map((project, i) => {
-                const isVideo = project.mediaType === "video";
                 return (
                 <motion.div
                   key={project.slug}
@@ -82,10 +81,7 @@ export default function ProjectsPage() {
                   transition={{ duration: 0.3, delay: i * 0.05 }}
                 >
                   <Card
-                    {...(isVideo && project.mediaSrc
-                      ? { onClick: () => window.open(project.mediaSrc, "_blank") }
-                      : { href: `/projects/${project.slug}` }
-                    )}
+                    href={`/projects/${project.slug}`}
                     shadowColor={["pink", "yellow", "green", "violet"][i % 4] as any}
                     className="h-full flex flex-col"
                   >
