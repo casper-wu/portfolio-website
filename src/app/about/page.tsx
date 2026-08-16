@@ -69,6 +69,14 @@ const skills = [
 
 const timeline = [
   {
+    year: "06/2026-08/2026",
+    title: "AI Game Marketing & Design Intern",
+    org: "AWIL Group Limited",
+    type: "work",
+    description:
+      "Designed game marketing assets end-to-end with AI — concept art, 3D modeling, UI/UX, and AI-generated narratives — while orchestrating agent workflows to streamline production.",
+  },
+  {
     year: "2025-2027",
     title: "M.Sc. Urban Design",
     org: "The Chinese University of Hong Kong",
