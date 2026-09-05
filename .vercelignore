@@ -1,0 +1,5 @@
+# Vercel: exclude large source/media that shouldn't be uploaded
+# Anchored to repo root (/...) so it only excludes these source folders,
+# never public/images/allwalks/ which IS meant to be deployed.
+/source-media/
+/Allwalks/

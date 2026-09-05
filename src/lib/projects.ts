@@ -18,7 +18,32 @@ export interface Project {
   workflowImage?: string;
 }
 
+const seq = (dir: string, count: number, ext: string) =>
+  Array.from({ length: count }, (_, i) => `/images/allwalks/${dir}/${i + 1}.${ext}`);
+
 export const projects: Project[] = [
+  {
+    slug: "allwalks-ui-design",
+    title: "Allwalks — Game & Website UI Design",
+    category: "ui-ux",
+    description:
+      "In-game interaction interfaces and a marketing website for Allwalks, unified under one visual system.",
+    fullDescription:
+      "Designed the UI for Allwalks — an AI-assisted game project — covering both in-game interaction interfaces and the official marketing website. The in-game UI focuses on clear, readable interaction elements, while the website UI prioritizes information hierarchy and brand presentation. A single visual language keeps gameplay and marketing consistent.",
+    image: "/images/allwalks/ui/game-ui-1.png",
+    tags: ["Game UI", "Web Design", "Figma", "Design System"],
+    role: "UI/UX Designer",
+    duration: "Summer 2026",
+    tools: ["Figma", "Prototyping", "Design System"],
+    year: 2026,
+    images: [
+      "/images/allwalks/ui/game-ui-1.png",
+      "/images/allwalks/ui/game-ui-2.png",
+      "/images/allwalks/ui/website-ui-1.png",
+      "/images/allwalks/ui/website-ui-2.png",
+      "/images/allwalks/ui/website-ui-3.png",
+    ],
+  },
   {
     slug: "mediplus",
     title: "MediPlus — Online Hospital",
@@ -184,6 +209,103 @@ export const projects: Project[] = [
     mediaType: "video",
     mediaSrc: "/Osmanthus%20flowers%20fall.mp4",
     workflowImage: "/images/Osmanthus%20flowers%20fall%20work%20flow.png",
+  },
+  {
+    slug: "rite-of-the-crimson-eye",
+    title: "Rite of the Crimson Eye",
+    category: "multimedia",
+    description:
+      "A dark-fantasy AI cinematic short — a lone candle, a cathedral, and a crimson-eyed girl bound to an ancient ritual.",
+    fullDescription:
+      "\"Rite of the Crimson Eye\" is an AI-generated cinematic short film set in a dark-fantasy world. It opens on a lone candle burning in the dark, then unfolds through a decaying gothic cathedral where a striking figure with crimson eyes is bound to a glowing summoning circle. The film blends rich cinematic lighting, stained-glass color, and an oppressive, atmospheric mood — deliberately paced long takes that build tension. Every frame, from concept and visual generation to the final edit, was produced with AI tools, exploring how generative video can carry narrative and emotion in a feature-film register.",
+    image: "/images/Rite%20of%20the%20Crimson%20Eye%20cover%20page.png",
+    tags: ["AI Video", "Short Film", "Dark Fantasy", "Visual Storytelling"],
+    role: "Director & Multimedia Designer",
+    duration: "73 seconds",
+    tools: ["AI Video Generation", "Image-to-Video", "Video Editing", "Color Grading"],
+    year: 2026,
+    images: [
+      "/images/Rite%20of%20the%20Crimson%20Eye%20frame1.png",
+      "/images/Rite%20of%20the%20Crimson%20Eye%20frame2.png",
+      "/images/Rite%20of%20the%20Crimson%20Eye%20frame3.png",
+    ],
+    mediaType: "video",
+    mediaSrc: "/Rite%20of%20the%20Crimson%20Eye.mp4",
+  },
+  {
+    slug: "allwalks-concept-art",
+    title: "Allwalks — Scene Concept Art",
+    category: "multimedia",
+    description:
+      "Seven environment concept pieces visualizing key locations across the world of Allwalks.",
+    fullDescription:
+      "A series of environment concept art for Allwalks, visualizing seven key locations — from a lakeside dock, hospital, and marketplace to a magic academy and desert sand bath. Each piece establishes mood, palette, and scale, with character roles placed in scene to communicate proportions and how players inhabit the space.",
+    image: "/images/allwalks/concept/dock.jpg",
+    tags: ["Concept Art", "Environment Design", "Game Art", "AI-Assisted"],
+    role: "Concept Artist",
+    duration: "Summer 2026",
+    tools: ["AI Image Generation", "Midjourney / ComfyUI", "Photoshop"],
+    year: 2026,
+    images: [
+      "/images/allwalks/concept/dock.jpg",
+      "/images/allwalks/concept/hospital.jpg",
+      "/images/allwalks/concept/koralia.jpg",
+      "/images/allwalks/concept/lake.jpg",
+      "/images/allwalks/concept/magic-academy.jpg",
+      "/images/allwalks/concept/market.jpg",
+      "/images/allwalks/concept/sand-bath.jpg",
+    ],
+  },
+  {
+    slug: "allwalks-ip-design",
+    title: "Allwalks — IP & Emoji Design",
+    category: "multimedia",
+    description:
+      "Character IP design and an expressive emoji set for the Allwalks universe.",
+    fullDescription:
+      "Developed the character IP and a companion emoji set for Allwalks. The IP defines the visual identity of the game's cast, while the emoji set extends that identity into expressive, shareable reactions — building a consistent, recognizable brand across the game and its community.",
+    image: "/images/allwalks/ip/ip.png",
+    tags: ["Character Design", "IP Design", "Emoji"],
+    role: "Character Designer",
+    duration: "Summer 2026",
+    tools: ["AI Image Generation", "Illustrator", "Photoshop"],
+    year: 2026,
+    images: [
+      "/images/allwalks/ip/ip.png",
+      "/images/allwalks/ip/emoji.png",
+    ],
+  },
+  {
+    slug: "allwalks-story-comics",
+    title: "Allwalks — Story Comics",
+    category: "multimedia",
+    description:
+      "A 32-panel story comic series bringing the game's narrative and characters to life.",
+    fullDescription:
+      "A 32-panel story comic series for Allwalks, adapting the game's story content into sequential narrative art. Each panel advances character arcs and world-building, with dialogue refined through the visual storytelling process to keep the narrative focused and clean.",
+    image: "/images/allwalks/story-comics/1.jpg",
+    tags: ["Comic", "Narrative Art", "Storytelling"],
+    role: "Comic Artist",
+    duration: "Summer 2026",
+    tools: ["AI Image Generation", "Photoshop", "Storyboarding"],
+    year: 2026,
+    images: seq("story-comics", 32, "jpg"),
+  },
+  {
+    slug: "allwalks-story-illustrations",
+    title: "Allwalks — Story Illustrations",
+    category: "multimedia",
+    description:
+      "30 narrative illustrations capturing key story moments across the Allwalks world.",
+    fullDescription:
+      "Thirty narrative illustrations for Allwalks, each capturing a key story moment or character beat. Together they build a rich visual library of the game's world, supporting both in-game narrative and marketing presentation.",
+    image: "/images/allwalks/story-illustrations/1.jpg",
+    tags: ["Illustration", "Narrative Art", "Game Art"],
+    role: "Illustrator",
+    duration: "Summer 2026",
+    tools: ["AI Image Generation", "Photoshop", "Illustration"],
+    year: 2026,
+    images: seq("story-illustrations", 30, "jpg"),
   },
   {
     slug: "music-festival-poster",

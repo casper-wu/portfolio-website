@@ -72,6 +72,7 @@ const timeline = [
     year: "06/2026-08/2026",
     title: "AI Game Marketing & Design Intern",
     org: "AWIL Group Limited",
+    location: "Hong Kong",
     type: "work",
     description:
       "Designed game marketing assets end-to-end with AI — concept art, 3D modeling, UI/UX, and AI-generated narratives — while orchestrating agent workflows to streamline production.",
@@ -80,6 +81,7 @@ const timeline = [
     year: "2025-2027",
     title: "M.Sc. Urban Design",
     org: "The Chinese University of Hong Kong",
+    location: "Hong Kong",
     type: "education",
     description:
       "Advanced study in urban design and urban renewal research, focusing on humanistic perspectives and rational analysis for creating vibrant, sustainable public spaces.",
@@ -88,6 +90,7 @@ const timeline = [
     year: "2024",
     title: "Summer Intern",
     org: "Suzhou Natural Resources and Planning Bureau",
+    location: "Suzhou, China",
     type: "work",
     description:
       "Assisted in the review and support of planning proposals, blueprint review, and conducted field research in the Land Resources Planning Department.",
@@ -96,6 +99,7 @@ const timeline = [
     year: "03/2024-05/2024",
     title: "Part-time Designer (Remote)",
     org: "Fu Bafang (Suzhou) Network Technology Company",
+    location: "Suzhou, China",
     type: "work",
     description:
       "Created APP page prototypes, produced event banners and posters, and edited short videos for events.",
@@ -104,6 +108,7 @@ const timeline = [
     year: "2023",
     title: "Summer Intern",
     org: "Chengkou County Jia Yangsheng Construction Engineering Consulting Center",
+    location: "Chengkou, Chongqing, China",
     type: "work",
     description:
       "Supported drawings for the 'Chengkou Village Road Hardening Project', document management, and financial auditing.",
@@ -112,6 +117,7 @@ const timeline = [
     year: "2021-2025",
     title: "B.A. Urban Planning and Design",
     org: "Xi'an Jiaotong-Liverpool University",
+    location: "Suzhou, China",
     type: "education",
     description:
       "Foundation in urban planning, spatial design, and visual communication. Developed skills across modeling, GIS, rendering, and design software.",
@@ -353,8 +359,12 @@ export default function AboutPage() {
                     <h3 className="font-heading font-bold text-lg mt-1">
                       {item.title}
                     </h3>
-                    <p className="font-heading font-medium text-sm text-muted-foreground mb-2">
+                    <p className="font-heading font-medium text-sm text-muted-foreground">
                       {item.org}
+                    </p>
+                    <p className="flex items-center gap-1.5 text-xs text-muted-foreground mt-1 mb-2">
+                      <MapPin size={12} className="text-accent shrink-0" />
+                      {item.location}
                     </p>
                     <p className="text-muted-foreground text-sm">
                       {item.description}

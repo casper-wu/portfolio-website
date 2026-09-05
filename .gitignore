@@ -8,3 +8,9 @@ out/
 next-env.d.ts
 
 .vercel
+
+# Large source media (master files, raw assets) — keep out of git & deploy
+# Anchor to repo root (/...) so it only excludes these source folders,
+# never public/images/allwalks/ which IS meant to be committed & deployed.
+/source-media/
+/Allwalks/
