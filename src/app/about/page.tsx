@@ -14,6 +14,7 @@ import {
   Languages,
   Landmark,
   Briefcase,
+  Users,
 } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
@@ -75,7 +76,13 @@ const timeline = [
     location: "Hong Kong",
     type: "work",
     description:
-      "Designed game marketing assets end-to-end with AI — concept art, 3D modeling, UI/UX, and AI-generated narratives — while orchestrating agent workflows to streamline production.",
+      "Delivered AI-driven game marketing assets end-to-end across a three-month internship — concept art, game and website UI/UX, and AI-generated narrative — while building multi-agent AI workflows into a repeatable production pipeline.",
+    highlights: [
+      "Produced 120+ marketing and in-game assets — concept scenes, 30 narrative illustrations, a 32-panel comic series, 30+ material sets, and 200+ story entries with an 11-chapter world-building guide.",
+      "Designed the in-game interaction UI (23 icons, 3 interface pages) and the official marketing website, and staged in-game scenes to produce 36 promotional screenshots for store and campaign use.",
+      "Built multi-agent AI workflows and a motion component library that cut asset turnaround time by roughly 40% and gave the team a faster route to future marketing assets.",
+      "Ran competitive research on the crafting and placement genre and supported the social-media calendar, reporting asset and engagement metrics in weekly strategy reviews.",
+    ],
   },
   {
     year: "2025-2027",
@@ -84,7 +91,12 @@ const timeline = [
     location: "Hong Kong",
     type: "education",
     description:
-      "Advanced study in urban design and urban renewal research, focusing on humanistic perspectives and rational analysis for creating vibrant, sustainable public spaces.",
+      "Advanced study in urban design and urban renewal, focusing on humanistic perspectives and rational analysis for creating vibrant, sustainable public spaces in high-density contexts.",
+    highlights: [
+      "Studio work on waterfront revitalisation and inclusive design for marginal urban communities, including the To Kwa Wan and Yau Ma Tei projects.",
+      "Research emphasis on translating field investigation and data analysis into implementable spatial strategies.",
+      "Coursework spanning urban renewal policy, public space design, and housing in dense cities.",
+    ],
   },
   {
     year: "2024",
@@ -93,7 +105,11 @@ const timeline = [
     location: "Suzhou, China",
     type: "work",
     description:
-      "Assisted in the review and support of planning proposals, blueprint review, and conducted field research in the Land Resources Planning Department.",
+      "Supported the Land-Use Planning Department by reviewing planning proposals and blueprints against local planning standards, and by compiling field research into usable records for planning decisions.",
+    highlights: [
+      "Reviewed 20+ planning proposals and architectural blueprints, verifying land-use indicators, floor-area ratios, and regulatory compliance.",
+      "Conducted field research and digitised spatial data and site records into summary notes for the department.",
+    ],
   },
   {
     year: "03/2024-05/2024",
@@ -102,7 +118,11 @@ const timeline = [
     location: "Suzhou, China",
     type: "work",
     description:
-      "Created APP page prototypes, produced event banners and posters, and edited short videos for events.",
+      "Designed app page prototypes and brand-aligned visual materials for a Suzhou technology company, covering the full path from structure and interaction logic to finished promotional assets.",
+    highlights: [
+      "Produced 10+ app page prototypes defining page structure, interaction flows, and key-page logic.",
+      "Designed brand-aligned banners and posters and edited short promotional videos for company events.",
+    ],
   },
   {
     year: "2023",
@@ -111,7 +131,11 @@ const timeline = [
     location: "Chengkou, Chongqing, China",
     type: "work",
     description:
-      "Supported drawings for the 'Chengkou Village Road Hardening Project', document management, and financial auditing.",
+      "Supported the delivery of rural infrastructure projects, producing construction drawings and technical documentation while assisting with document management and financial audits.",
+    highlights: [
+      "Produced construction drawings and technical documentation for the Chengkou Village Road Hardening Project.",
+      "Supported document management and financial auditing across the project's delivery phase.",
+    ],
   },
   {
     year: "2021-2025",
@@ -120,7 +144,12 @@ const timeline = [
     location: "Suzhou, China",
     type: "education",
     description:
-      "Foundation in urban planning, spatial design, and visual communication. Developed skills across modeling, GIS, rendering, and design software.",
+      "Foundation in urban planning, spatial design, and visual communication, with studio projects spanning community redevelopment, cultural heritage, and public space.",
+    highlights: [
+      "Studio projects covering community redevelopment, cultural heritage revival, and all-age-friendly public space in Suzhou.",
+      "Built working skills across 3D modeling (Rhino, SketchUp), GIS analysis (ArcGIS Pro), and rendering (Lumion, D5 Renderer).",
+      "Developed a visual communication and layout foundation that underpins later UI/UX and multimedia work.",
+    ],
   },
 ];
 
@@ -369,6 +398,25 @@ export default function AboutPage() {
                     <p className="text-muted-foreground text-sm">
                       {item.description}
                     </p>
+                    {item.highlights && item.highlights.length > 0 && (
+                      <ul className="mt-4 space-y-2 border-t border-border pt-4">
+                        {item.highlights.map((point) => (
+                          <li
+                            key={point}
+                            className="flex gap-2 text-sm text-muted-foreground"
+                          >
+                            <span
+                              className={`w-1.5 h-1.5 rounded-full mt-2 shrink-0 ${
+                                item.type === "education"
+                                  ? "bg-secondary"
+                                  : "bg-accent"
+                              }`}
+                            />
+                            {point}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 </motion.div>
               ))}
@@ -377,7 +425,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Academic Research */}
+      {/* Campus Experience */}
       <section className="py-16 md:py-24 bg-muted/50">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
@@ -387,35 +435,58 @@ export default function AboutPage() {
             className="text-center mb-16"
           >
             <h2 className="font-heading font-extrabold text-3xl md:text-4xl mb-4">
-              Academic Research
+              Campus Experience
             </h2>
             <p className="text-muted-foreground max-w-lg mx-auto">
-              Research projects exploring the intersection of urban
-              environments, human behavior, and data analysis.
+              Student leadership and research projects from my time on campus —
+              building community and exploring urban environments.
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {[
               {
+                title: "Secretary-General & Head of Secretary Dept., Anime Club",
+                meta: "Oct 2021 – Oct 2022",
+                icon: Users,
+                color: "bg-quaternary",
+                description:
+                  "Led the club's recruitment and promotional work as head of the secretary department, growing membership and running two campus exhibition events.",
+                highlights: [
+                  "Planned the annual recruitment process end-to-end and led production of all promotional materials, bringing in 300+ new members.",
+                  "Co-planned two anime exhibition events, directing the design of their promotional materials.",
+                  "Ran secretary department operations across a full year — meeting records, member tracking, and internal communications.",
+                ],
+              },
+              {
                 title:
                   "Quantitative Study on the Emotional Value of Human-Wildlife Connections in High-Density Urban Environments",
+                meta: "Research Assistant · Dec 2023 – Jan 2024",
                 icon: Heart,
                 color: "bg-secondary",
                 description:
-                  "Investigating how interactions with wildlife in dense urban settings contribute to emotional well-being and quality of life for city residents.",
+                  "Investigated how interactions with wildlife in dense urban settings contribute to emotional well-being and quality of life for city residents.",
+                highlights: [
+                  "Supported survey design and data collection on residents' emotional responses to urban wildlife.",
+                  "Assisted quantitative analysis linking wildlife exposure to reported well-being outcomes.",
+                ],
               },
               {
                 title:
                   "Investigation Project on Cross-Language Plagiarism",
+                meta: "Research Assistant · Feb – May 2024",
                 icon: Globe,
                 color: "bg-accent",
                 description:
-                  "A research study examining cross-language plagiarism detection methods and their application in academic integrity contexts.",
+                  "Examined cross-language plagiarism detection methods and their application in academic integrity contexts.",
+                highlights: [
+                  "Reviewed detection methods and compared how each handled cross-language cases.",
+                  "Compiled findings into reference material supporting academic integrity practice.",
+                ],
               },
-            ].map((research, i) => (
+            ].map((item, i) => (
               <motion.div
-                key={research.title}
+                key={item.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -423,16 +494,34 @@ export default function AboutPage() {
               >
                 <Card className="p-6 h-full">
                   <div
-                    className={`w-12 h-12 ${research.color} rounded-full border-2 border-foreground flex items-center justify-center mb-4 shadow-pop`}
+                    className={`w-12 h-12 ${item.color} rounded-full border-2 border-foreground flex items-center justify-center mb-4 shadow-pop`}
                   >
-                    <research.icon size={22} className="text-white" />
+                    <item.icon size={22} className="text-white" />
                   </div>
-                  <h3 className="font-heading font-bold text-base mb-2">
-                    {research.title}
+                  <h3 className="font-heading font-bold text-base mb-1">
+                    {item.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm">
-                    {research.description}
+                  <p className="font-heading font-medium text-xs text-muted-foreground mb-2">
+                    {item.meta}
                   </p>
+                  <p className="text-muted-foreground text-sm">
+                    {item.description}
+                  </p>
+                  {item.highlights && item.highlights.length > 0 && (
+                    <ul className="mt-4 space-y-2 border-t border-border pt-4">
+                      {item.highlights.map((point) => (
+                        <li
+                          key={point}
+                          className="flex gap-2 text-sm text-muted-foreground"
+                        >
+                          <span
+                            className={`w-1.5 h-1.5 ${item.color} rounded-full mt-2 shrink-0`}
+                          />
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </Card>
               </motion.div>
             ))}

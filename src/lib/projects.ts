@@ -23,6 +23,95 @@ const seq = (dir: string, count: number, ext: string) =>
 
 export const projects: Project[] = [
   {
+    slug: "is-my-cat-an-alien-observer",
+    title: "Is My Cat an Alien Observer?",
+    category: "multimedia",
+    description:
+      "A six-minute narrative short — a quiet domestic story that turns on the discovery that the family cat has been filing observer renewal contracts all along.",
+    fullDescription:
+      "\"Is My Cat an Alien Observer?\" is a six-minute narrative short film produced end-to-end with AI tools. A warm, lived-in domestic story slowly reveals its twist: the protagonist's orange tabby is an alien observer, renewing its observation contract from a wall behind the fridge. Told through bilingual subtitled dialogue and grounded, everyday imagery — combing the cat, carrying it over a shoulder, drafting at a desk — the film builds from ordinary moments toward the reveal. It pairs AI video generation with hands-on editing, including pacing, subtitle timing, sound, and the narrative structure that lands the ending.",
+    image: "/images/Is%20My%20Cat%20an%20Alien%20Observer%20cover%20page.png",
+    tags: ["AI Film", "Narrative", "Short Film", "AI Video"],
+    role: "Director, Writer & Editor",
+    duration: "6 minutes",
+    tools: ["AI Video Generation", "Screenwriting", "Video Editing", "Subtitling"],
+    year: 2026,
+    images: [
+      "/images/Is%20My%20Cat%20an%20Alien%20Observer%20frame30.png",
+      "/images/Is%20My%20Cat%20an%20Alien%20Observer%20frame220.png",
+      "/images/Is%20My%20Cat%20an%20Alien%20Observer%20frame300.png",
+      "/images/Is%20My%20Cat%20an%20Alien%20Observer%20frame360.png",
+    ],
+    mediaType: "video",
+    mediaSrc: "/Is%20My%20Cat%20an%20Alien%20Observer.mp4",
+  },
+  {
+    slug: "neon-pulse",
+    title: "Neon Pulse",
+    category: "multimedia",
+    description:
+      "A vibrant character PV for an original anime heroine — neon pop-art styling spotlighting her signature look.",
+    fullDescription:
+      "\"Neon Pulse\" is an energetic character promotion video for an original anime heroine. Shot in a bright neon pop-art style, it spotlights her signature look piece by piece — hands stacked with rings, a beaded cross necklace, an orange track jacket, and chunky sneakers — with bold typography (HANDS / NECK / JACKET / SHOES) driving the rhythm. The full-body reveals and close-ups capture her vivid, streetwear personality. Produced end-to-end with AI tools, it shows how character design can be presented with personality and commercial energy.",
+    image: "/images/Neon%20Pulse%20cover%20page.png",
+    tags: ["Character PV", "AI Video", "Character Design", "Pop Art"],
+    role: "Director & Character Designer",
+    duration: "15 seconds",
+    tools: ["AI Video Generation", "Image-to-Video", "Video Editing", "Color Grading"],
+    year: 2026,
+    images: [
+      "/images/Neon%20Pulse%20frame1.png",
+      "/images/Neon%20Pulse%20frame2.png",
+      "/images/Neon%20Pulse%20frame3.png",
+    ],
+    mediaType: "video",
+    mediaSrc: "/Neon%20Pulse.mp4",
+  },
+  {
+    slug: "ugc-cosmetics-advertisement",
+    title: "UGC-Style Cosmetics Advertisement",
+    category: "multimedia",
+    description:
+      "A vertical UGC-style skincare ad — an authentic direct-to-camera testimonial, AI-generated and edited.",
+    fullDescription:
+      "A 15-second vertical advertisement for a skincare serum, made in the native format of social commerce. Rather than polished studio footage, it uses the direct-to-camera testimonial style that performs on short-video platforms — a natural bathroom routine, honest close-ups of skin before and after, and conversational captions that carry the viewer through to the product. Developed end-to-end with AI tools for both generation and editing.",
+    image: "/images/UGC-style%20cosmetics%20advertisement%20cover%20page.png",
+    tags: ["AI Video", "UGC", "Advertising", "Vertical Video"],
+    role: "AI Video Creator & Editor",
+    duration: "15 seconds",
+    tools: ["AI Video Generation", "Video Editing", "Captioning", "Color Grading"],
+    year: 2026,
+    images: [
+      "/images/UGC-style%20cosmetics%20advertisement%20frame4.png",
+      "/images/UGC-style%20cosmetics%20advertisement%20frame7.png",
+      "/images/UGC-style%20cosmetics%20advertisement%20frame10.png",
+    ],
+    mediaType: "video",
+    mediaSrc: "/UGC-style%20cosmetics%20advertisements.mp4",
+  },
+  {
+    slug: "rite-of-the-crimson-eye",
+    title: "Rite of the Crimson Eye",
+    category: "multimedia",
+    description:
+      "A dark-fantasy AI cinematic short — a lone candle, a cathedral, and a crimson-eyed girl bound to an ancient ritual.",
+    fullDescription:
+      "\"Rite of the Crimson Eye\" is an AI-generated cinematic short film set in a dark-fantasy world. It opens on a lone candle burning in the dark, then unfolds through a decaying gothic cathedral where a striking figure with crimson eyes is bound to a glowing summoning circle. The film blends rich cinematic lighting, stained-glass color, and an oppressive, atmospheric mood — deliberately paced long takes that build tension. Every frame, from concept and visual generation to the final edit, was produced with AI tools, exploring how generative video can carry narrative and emotion in a feature-film register.",
+    image: "/images/Rite%20of%20the%20Crimson%20Eye%20cover%20page.png",
+    tags: ["AI Video", "Short Film", "Dark Fantasy", "Visual Storytelling"],
+    role: "Director & Multimedia Designer",
+    duration: "73 seconds",
+    tools: ["AI Video Generation", "Image-to-Video", "Video Editing", "Color Grading"],
+    year: 2026,
+    images: [
+      "/images/Rite%20of%20the%20Crimson%20Eye%20frame1.png",
+      "/images/Rite%20of%20the%20Crimson%20Eye%20frame2.png",
+      "/images/Rite%20of%20the%20Crimson%20Eye%20frame3.png",
+    ],
+    mediaType: "video",
+    mediaSrc: "/Rite%20of%20the%20Crimson%20Eye.mp4",
+  },
+  {
     slug: "allwalks-ui-design",
     title: "Allwalks — Game & Website UI Design",
     category: "ui-ux",
@@ -209,28 +298,6 @@ export const projects: Project[] = [
     mediaType: "video",
     mediaSrc: "/Osmanthus%20flowers%20fall.mp4",
     workflowImage: "/images/Osmanthus%20flowers%20fall%20work%20flow.png",
-  },
-  {
-    slug: "rite-of-the-crimson-eye",
-    title: "Rite of the Crimson Eye",
-    category: "multimedia",
-    description:
-      "A dark-fantasy AI cinematic short — a lone candle, a cathedral, and a crimson-eyed girl bound to an ancient ritual.",
-    fullDescription:
-      "\"Rite of the Crimson Eye\" is an AI-generated cinematic short film set in a dark-fantasy world. It opens on a lone candle burning in the dark, then unfolds through a decaying gothic cathedral where a striking figure with crimson eyes is bound to a glowing summoning circle. The film blends rich cinematic lighting, stained-glass color, and an oppressive, atmospheric mood — deliberately paced long takes that build tension. Every frame, from concept and visual generation to the final edit, was produced with AI tools, exploring how generative video can carry narrative and emotion in a feature-film register.",
-    image: "/images/Rite%20of%20the%20Crimson%20Eye%20cover%20page.png",
-    tags: ["AI Video", "Short Film", "Dark Fantasy", "Visual Storytelling"],
-    role: "Director & Multimedia Designer",
-    duration: "73 seconds",
-    tools: ["AI Video Generation", "Image-to-Video", "Video Editing", "Color Grading"],
-    year: 2026,
-    images: [
-      "/images/Rite%20of%20the%20Crimson%20Eye%20frame1.png",
-      "/images/Rite%20of%20the%20Crimson%20Eye%20frame2.png",
-      "/images/Rite%20of%20the%20Crimson%20Eye%20frame3.png",
-    ],
-    mediaType: "video",
-    mediaSrc: "/Rite%20of%20the%20Crimson%20Eye.mp4",
   },
   {
     slug: "allwalks-concept-art",
