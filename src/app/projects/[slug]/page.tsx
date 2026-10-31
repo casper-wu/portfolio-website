@@ -1,5 +1,6 @@
 "use client";
 
+import { useCallback, useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
 import {
@@ -10,6 +11,9 @@ import {
   Building2,
   Palette,
   Film,
+  ChevronLeft,
+  ChevronRight,
+  X,
 } from "lucide-react";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
@@ -19,6 +23,38 @@ import { getProjectBySlug, projects } from "@/lib/projects";
 export default function ProjectDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const project = getProjectBySlug(slug);
+
+  // Hooks must run before the early return below.
+  const totalPages = project?.contentPages?.length ?? 0;
+  const [zoomIndex, setZoomIndex] = useState<number | null>(null);
+
+  const closeZoom = useCallback(() => setZoomIndex(null), []);
+
+  const stepZoom = useCallback(
+    (delta: number) => {
+      if (totalPages === 0) return;
+      setZoomIndex((i) =>
+        i === null ? i : (i + delta + totalPages) % totalPages
+      );
+    },
+    [totalPages]
+  );
+
+  useEffect(() => {
+    if (zoomIndex === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeZoom();
+      else if (e.key === "ArrowLeft") stepZoom(-1);
+      else if (e.key === "ArrowRight") stepZoom(1);
+    };
+    window.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [zoomIndex, closeZoom, stepZoom]);
 
   if (!project) {
     return (
@@ -279,6 +315,48 @@ export default function ProjectDetailPage() {
         </div>
       </section>
 
+      {/* Full case study */}
+      {project.contentPages && project.contentPages.length > 0 && (
+        <section className="py-16 md:py-24 bg-muted/50">
+          <div className="max-w-6xl mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-10"
+            >
+              <h2 className="font-heading font-extrabold text-2xl md:text-3xl mb-3">
+                Full Case Study
+              </h2>
+              <p className="text-muted-foreground max-w-lg mx-auto">
+                The complete project, {totalPages} pages. Click any page to view
+                it larger.
+              </p>
+            </motion.div>
+
+            <div className="space-y-6">
+              {project.contentPages.map((src, i) => (
+                <button
+                  key={src}
+                  type="button"
+                  onClick={() => setZoomIndex(i)}
+                  className="block w-full rounded-lg border-2 border-foreground shadow-pop-card overflow-hidden bg-white cursor-zoom-in"
+                  aria-label={`View page ${i + 1} larger`}
+                >
+                  <img
+                    src={src}
+                    alt={`${project.title} — page ${i + 1} of ${totalPages}`}
+                    loading={i === 0 ? "eager" : "lazy"}
+                    decoding="async"
+                    className="w-full h-auto block"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Related Projects */}
       {related.length > 0 && (
         <section className="py-16 md:py-24 bg-muted/50">
@@ -366,6 +444,66 @@ export default function ProjectDetailPage() {
           </div>
         </div>
       </section>
+      {/* Page zoom overlay */}
+      {zoomIndex !== null && project.contentPages && (
+        <div
+          className="fixed inset-0 z-[100] bg-black/90 overflow-auto"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${project.title} — page ${zoomIndex + 1}`}
+          onClick={closeZoom}
+        >
+          <div className="min-h-full flex items-start justify-center py-16 px-4">
+            <img
+              src={project.contentPages[zoomIndex]}
+              alt={`${project.title} — page ${zoomIndex + 1} of ${totalPages}`}
+              className="block w-[min(1800px,100%)] h-auto bg-white"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+
+          <button
+            type="button"
+            onClick={closeZoom}
+            className="fixed top-4 right-4 z-[101] p-2 rounded-full bg-white text-foreground border-2 border-foreground shadow-pop-card hover:bg-muted transition-colors"
+            aria-label="Close"
+          >
+            <X size={20} />
+          </button>
+
+          {zoomIndex > 0 && (
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                stepZoom(-1);
+              }}
+              className="fixed left-4 top-1/2 -translate-y-1/2 z-[101] p-3 rounded-full bg-white text-foreground border-2 border-foreground shadow-pop-card hover:bg-muted transition-colors"
+              aria-label="Previous page"
+            >
+              <ChevronLeft size={22} />
+            </button>
+          )}
+
+          {zoomIndex < totalPages - 1 && (
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                stepZoom(1);
+              }}
+              className="fixed right-4 top-1/2 -translate-y-1/2 z-[101] p-3 rounded-full bg-white text-foreground border-2 border-foreground shadow-pop-card hover:bg-muted transition-colors"
+              aria-label="Next page"
+            >
+              <ChevronRight size={22} />
+            </button>
+          )}
+
+          <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[101] px-3 py-1 rounded-full bg-white text-foreground border-2 border-foreground font-heading text-sm font-bold">
+            {zoomIndex + 1} / {totalPages}
+          </div>
+        </div>
+      )}
     </>
   );
 }

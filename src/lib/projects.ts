@@ -13,6 +13,11 @@ export interface Project {
   tools: string[];
   year: number;
   images: string[];
+  /**
+   * Full case-study spreads rendered from the project's portfolio PDF, in
+   * order. Shown as a long-scroll gallery after the summary content.
+   */
+  contentPages?: string[];
   mediaType?: "video" | "image";
   mediaSrc?: string;
   workflowImage?: string;
@@ -20,6 +25,14 @@ export interface Project {
 
 const seq = (dir: string, count: number, ext: string) =>
   Array.from({ length: count }, (_, i) => `/images/allwalks/${dir}/${i + 1}.${ext}`);
+
+// Full case-study spreads exported from each project's portfolio PDF.
+const casePages = (slug: string, count: number) =>
+  Array.from(
+    { length: count },
+    (_, i) =>
+      `/images/case-studies/${slug}/page-${String(i + 1).padStart(2, "0")}.webp`
+  );
 
 export const projects: Project[] = [
   {
@@ -148,6 +161,7 @@ export const projects: Project[] = [
     tools: ["Figma", "User Research", "Prototyping", "Maze"],
     year: 2025,
     images: ["/images/mediplus-process-1.jpg", "/images/mediplus-process-2.jpg"],
+    contentPages: casePages("mediplus", 10),
   },
   {
     slug: "construction-company-website",
@@ -164,6 +178,7 @@ export const projects: Project[] = [
     tools: ["Figma", "Adobe Photoshop", "Illustrator"],
     year: 2025,
     images: ["/images/construction-website-process-1.jpg", "/images/construction-website-process-2.jpg"],
+    contentPages: casePages("construction-company-website", 3),
   },
   {
     slug: "enterprise-management-system",
@@ -180,6 +195,7 @@ export const projects: Project[] = [
     tools: ["Figma", "Component Library", "UX Design"],
     year: 2025,
     images: ["/images/enterprise-system-process-1.jpg", "/images/enterprise-system-process-2.jpg"],
+    contentPages: casePages("enterprise-management-system", 7),
   },
   {
     slug: "revival-of-coastal-living",
@@ -196,6 +212,7 @@ export const projects: Project[] = [
     tools: ["Rhino 3D", "GIS", "Illustrator", "Photoshop"],
     year: 2024,
     images: ["/images/revival-coastal-process-1.jpg", "/images/revival-coastal-process-2.jpg"],
+    contentPages: casePages("revival-of-coastal-living", 8),
   },
   {
     slug: "revival-of-three-flowers",
@@ -212,6 +229,7 @@ export const projects: Project[] = [
     tools: ["Rhino 3D", "AutoCAD", "Illustrator", "Photoshop", "GIS"],
     year: 2024,
     images: ["/images/revival-three-flowers-process-1.jpg", "/images/revival-three-flowers-process-2.jpg"],
+    contentPages: casePages("revival-of-three-flowers", 7),
   },
   {
     slug: "ties-of-harmony",
@@ -228,6 +246,7 @@ export const projects: Project[] = [
     tools: ["Rhino 3D", "GIS", "Illustrator", "InDesign"],
     year: 2024,
     images: ["/images/ties-of-harmony-process-1.jpg", "/images/ties-of-harmony-process-2.jpg"],
+    contentPages: casePages("ties-of-harmony", 8),
   },
   {
     slug: "seeking-warmth-everyday-life",
@@ -244,6 +263,7 @@ export const projects: Project[] = [
     tools: ["SketchUp", "AutoCAD", "Photoshop", "Illustrator"],
     year: 2024,
     images: ["/images/seeking-warmth-process-1.png", "/images/seeking-warmth-process-2.png"],
+    contentPages: casePages("seeking-warmth-everyday-life", 5),
   },
   {
     slug: "beyond-the-margins",
@@ -260,6 +280,7 @@ export const projects: Project[] = [
     tools: ["GIS", "Illustrator", "InDesign", "Photography"],
     year: 2025,
     images: ["/images/beyond-margins-process-1.png", "/images/beyond-margins-process-2.png"],
+    contentPages: casePages("beyond-the-margins", 4),
   },
   {
     slug: "ai-perfume-commercial",
